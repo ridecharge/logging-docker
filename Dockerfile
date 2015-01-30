@@ -21,4 +21,7 @@ RUN ansible-playbook --connection=local /tmp/playbook.yml
 # Remove ansible
 RUN apt-get purge -y --auto-remove ansible software-properties-common
 
+EXPOSE 6514
+EXPOSE 6514/tcp
+
 ENTRYPOINT ["/tmp/syslog-ng-wrapper.sh"]
