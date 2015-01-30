@@ -1,0 +1,9 @@
+---
+- debug: msg="Ubuntu Logging Packages"
+
+# Update distro list and make default packages up to date.
+- apt: upgrade=dist update_cache=yes
+
+# Install latest logging packages
+- apt: name={{ item }} state=present
+  with_items: logging_ubuntu_packages+logging_packages
