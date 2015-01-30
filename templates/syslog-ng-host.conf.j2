@@ -1,8 +1,0 @@
-destination d_local {
-	syslog("0.0.0.0" transport("tcp") port(514));
-};
-
-log { 
-	source(s_src); 
-	destination(d_local); 
-};

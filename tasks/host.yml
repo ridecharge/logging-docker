@@ -1,3 +1,0 @@
----
-- name: syslog-ng is restarted and enabled
-  service: name=syslog-ng state=restarted enabled=yes

@@ -1,7 +1,0 @@
----
-# defaults file for logging-docker
-logging_packages: 
-- syslog-ng
-- logrotate
-
-logging_mode: host

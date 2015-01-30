@@ -1,6 +1,0 @@
----
-- debug: msg="Ubuntu Logging Packages"
-
-# Install latest logging packages
-- pkgng: name={{ item }} state=present
-  with_items: logging_packages
