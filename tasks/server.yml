@@ -1,3 +1,3 @@
 ---
 - name: copies over loggly tls cert
-  copy: src=loggly.crt dest={{ logging_etc_path }}/syslog-ng/keys/ca.d/loggly.crt
+  copy: src=keys/loggly.crt dest={{ logging_etc_path }}/syslog-ng/keys/ca.d/loggly.crt
