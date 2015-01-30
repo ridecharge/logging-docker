@@ -3,4 +3,4 @@
   copy: src=certs/loggly.crt dest={{ logging_etc_path }}/syslog-ng/keys/ca.d/loggly.crt
 
 - name: copies over syslog-ng wrapper script
-  copy: src=scripts/syslog-ng-wrapper.sh dest=/tmp/syslog-ng-wrapper.sh
+  copy: src=scripts/syslog-ng-wrapper.sh dest=/tmp/syslog-ng-wrapper.sh mode=0500
