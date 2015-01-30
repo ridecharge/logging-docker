@@ -1,0 +1,7 @@
+---
+logging_ubuntu_packages: 
+- syslog-ng-core
+
+logging_lastest_packages: "{{ base_ubuntu_packages + base_logging_packages }}"
+
+logging_etc_path: /etc

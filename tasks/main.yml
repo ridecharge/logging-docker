@@ -1,0 +1,28 @@
+---
+# tasks file for logging
+- debug: msg="{{ ansible_distribution }}"
+
+- name: OS Specific Variables
+  include_vars: "{{ ansible_distribution }}.yml"
+
+# OS Specific packages
+- include: 'Ubuntu.yml'
+  when: ansible_distribution == 'Ubuntu'
+
+- include: 'FreeBSD.yml'
+  when: ansible_distribution == 'FreeBSD'
+
+- name: Creates syslog-ng conf.d directory
+  file: path={{ logging_etc_path }}/syslog-ng/conf.d/ state=directory
+
+- name: Creates syslog-ng ca.d directory
+  file: path={{ logging_etc_path }}/syslog-ng/keys/ca.d/ state=directory
+
+- name: coppies over the syslog-ng config file
+  template: src=syslog-ng-{{ logging_mode }}.conf.j2 dest={{ logging_etc_path }}/syslog-ng/conf.d/22-loggly.conf
+
+- include: 'host.yml'
+  when: logging_mode == 'host'
+
+- include: 'server.yml'
+  when: logging_mode == 'server'

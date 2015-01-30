@@ -1,0 +1,5 @@
+---
+logging_freebsd_packages: 
+-
+
+logging_etc_path: /usr/local/etc
