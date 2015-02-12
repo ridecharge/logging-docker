@@ -2,8 +2,7 @@
 FROM ubuntu:14.04
 
 # Install Ansible
-RUN apt-get update && \
-    apt-get install --no-install-recommends -y software-properties-common && \
+RUN apt-get install --no-install-recommends -y software-properties-common && \
     apt-add-repository ppa:ansible/ansible && \
     apt-get update && \
     apt-get install -y ansible
@@ -21,7 +20,6 @@ RUN ansible-playbook --connection=local /tmp/playbook.yml
 # Remove ansible
 RUN apt-get purge -y --auto-remove ansible software-properties-common
 
-EXPOSE 514
-EXPOSE 514/tcp
+EXPOSE 514/udp
 
 ENTRYPOINT ["/tmp/syslog-ng-wrapper.sh"]
