@@ -21,5 +21,5 @@ RUN ansible-playbook --connection=local /tmp/playbook.yml
 RUN apt-get purge -y --auto-remove ansible software-properties-common
 
 EXPOSE 514/udp
-
+VOLUME ["/dev"]
 ENTRYPOINT ["/tmp/syslog-ng-wrapper.sh"]
