@@ -1,4 +1,5 @@
-CONTAINER=ridecharge/logging
+DOCKER_REPO?=registry.gocurb.internal:80
+CONTAINER=$(DOCKER_REPO)/logging
 
 all: build push clean
 
